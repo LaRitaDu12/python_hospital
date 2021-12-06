@@ -15,4 +15,4 @@
 
 accuracy is 0.637902635431918 which is quite disappointing 
 
-Confusion matrix : 
+Confusion matrix : ![cf_matrix](https://user-images.githubusercontent.com/72661948/144827288-0046fb0e-ff3f-4b94-b0b9-fbbca6803b67.png)
