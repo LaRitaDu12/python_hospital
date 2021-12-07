@@ -1,0 +1,19 @@
+.div {
+display:table-cell;
+width:300px;
+height:500px;
+margin:5;
+text-align: center;
+}
+#marge {
+	width: 15px;
+}
+#bloc1 {
+	background: #D2F4C2;
+}
+#bloc2 {
+	background: #C2F4C2;
+}
+#bloc3 {
+	background: #C2F4DB;
+}
