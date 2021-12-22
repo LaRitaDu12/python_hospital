@@ -30,7 +30,7 @@
                   <a class="nav-link" href="/../../dataviz">Dataviz</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Models</a>
+                  <a class="nav-link" href="/../models">Models</a>
               </li>
               </li>
             </ul>
@@ -44,25 +44,161 @@
   <br>
   <br>
 
-	<div class="Global" id="visu">
+
+
+  {%if choice%}
+  
+    
+    <div class="Global" id="visu">
     <canvas id="myChart" width="400" height="400"></canvas>
     <script>
+      var val = [{% for value in values %}'{{value|safe}}',{% endfor %}]
+
+      const backColor = ['rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)']
+      const borderColor = ['rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+      ]
+
+      
+      
+      
+      if ({{data}}.length == 1)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        }]
+      }
+      if ({{data}}.length == 2)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        },
+        {
+          label: val[1],
+          data: {{data}}[1],
+          borderColor: borderColor[1],
+          backgroundColor: backColor[1],
+        }]
+      }
+      if ({{data}}.length == 3)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        },
+        {
+          label: val[1],
+          data: {{data}}[1],
+          borderColor: borderColor[1],
+          backgroundColor: backColor[1],
+        },
+        {
+          label:val[2],
+          data: {{data}}[2],
+          borderColor: borderColor[2],
+          backgroundColor: backColor[2],
+        }]
+      }
+      if ({{data}}.length == 4)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        },
+        {
+          label: val[1],
+          data: {{data}}[1],
+          borderColor: borderColor[1],
+          backgroundColor: backColor[1],
+        },
+        {
+          label: val[2],
+          data: {{data}}[2],
+          borderColor: borderColor[2],
+          backgroundColor: backColor[2],
+        },
+        {
+          label: val[3],
+          data: {{data}}[3],
+          borderColor: borderColor[3],
+          backgroundColor: backColor[3],
+        }
+        ]
+
+      }
+      
+      
+        
+
       const ctx = document.getElementById('myChart').getContext('2d');
       const myChart = new Chart(ctx, {
             type: '{{visu.visu_type}}',
               data: {
-                labels: [{% for label in labels %}'{{label}}',{% endfor %}],
+                labels: [{% for label in labels %}'{{label|safe}}',{% endfor %}],
+                datasets: dataset
+              },
+              options: {
+              scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }}
+              });
+    </script>
+  </div>
+
+
+  {%else%}
+	<div class="Global" id="visu">
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+      const backColor = ['rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)']
+      const borderColor = ['rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+      ]
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+            type: '{{visu.visu_type}}',
+              data: {
+                labels: [{% for label in labels %}'{{label|safe}}',{% endfor %}],
                 datasets: [{
                   label: 'titre label',
                   data: {{data}},
-                  backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                  ],
-                 borderColor: [
-                     'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)'
-                  ],
+                  backgroundColor: backColor,
+                 borderColor: borderColor,
                   borderWidth: 1
                 }]
               },
@@ -75,12 +211,18 @@
               });
     </script>
   </div>
+  {%endif%}
+
+  
+
+
   <div class="Global" id="marge"></div>
   <div class="Global" id="desc">
     <br>
     <center><h1>{{visu.visu_title}}</h1></center>
+    <br>
     <p>
-      Ici la description et l'analyse de la visu.
+      {{visu.visu_description}}
     </p>
   </div>
 </body>

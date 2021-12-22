@@ -1,0 +1,41 @@
+.div {
+display:table-cell;
+text-align: left;
+
+}
+#marge {
+	width: 20px;
+	text-align: center;
+}
+#bloc1 {
+	background: #A9BFC5;
+	width: 700px;
+	height:1200px;
+}
+#bloc1_m {
+	background: #FFFF;
+	width: 700px;
+	height:300px;
+}
+
+
+#bloc2 {
+	background: #B7D2D2;
+	width: 300px;
+}
+#bloc2_m {
+	background: #FFFF;
+	width: 700px;
+	height:300px;
+}
+
+p{
+	font-size: 1.1rem;
+	margin-left: 10px;
+}
+
+h4{
+	font-size: 1.6rem;
+	margin-left: auto;
+	margin-right: auto;
+}

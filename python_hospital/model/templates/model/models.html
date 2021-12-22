@@ -1,8 +1,8 @@
 <head>
-	<title> Dataviz </title>
+	<title> Predictions </title>
 	<meta charset="UTF-8">
 	{% load static %}
-	 <link rel="stylesheet" type="text/css" href="{% static 'model/style_dataviz.css' %}">
+	 <link rel="stylesheet" type="text/css" href="{% static 'model/style_models.css' %}">
 	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
@@ -25,10 +25,10 @@
         			<a class="nav-link active" aria-current="page" href="/../context">What we do</a>
         			</li>
         			<li class="nav-item">
-          				<a class="nav-link" href="">Dataviz</a>
+          				<a class="nav-link" href="/../dataviz">Dataviz</a>
         			</li>
         			<li class="nav-item">
-          				<a class="nav-link" href="/../models">Models</a>
+          				<a class="nav-link" href="">Models</a>
         			</li>
         			</li>
       			</ul>
@@ -42,57 +42,31 @@
 	<br>
 	<br>
 
-	<!-- Liste des dataviz -->
 	<center>
 
-		<!-- Quelques informations -->
+		<!-- Explication du modèle 
 		<div class="div" id="bloc1">
 			<br>
-			<h5>Quelques informations</h5>
+			<h5>Le modèle de prédiction</h5>
 			<br>
-			{% if list_info %}
-    			{% for visu in list_info %}
-                    <a class="btn btn-success" href="/../{{visu.id}}/visu/" role="button" style="width:300px;height:60px;text-align: center;">{{visu.visu_title}}</a>
-                    <div class="div" id="bloc1_m"></div>
-    			{% endfor %}
-    			{% else %}
-        			<p>Create some visualization</p>
-			{% endif %}
+			<p>blablabla</p>
 		</div>
-		<div class="div" id="marge"></div>
+		<div class="div" id="marge"></div>-->
 
-		<!-- Comprendre le dataset -->
+		<!-- Liste des predictions -->
 		<div class="div" id="bloc2">
 			<br>
-			<h5>Comprendre le dataset</h5>
+			<h5>Liste des predictions</h5>
 			<br>
-			{% if list_comprendre %}
-    			{% for visu in list_comprendre %}
-                    <a class="btn btn-success" href="/../{{visu.id}}/visu/" role="button" style="width:300px;height:60px;text-align: center;">{{visu.visu_title}}</a>
+			{% if list_preds %}
+    			{% for pred in list_preds %}
+                    <a class="btn btn-success" href="/../{{pred.id}}/pred/" role="button" style="width:300px;height:60px;text-align: center;">{{pred.visu_name}}</a>
                     <div class="div" id="bloc2_m"></div>
     			{% endfor %}
     			{% else %}
-        			<p>---</p>
+        			<p>Créer des prédictions</p>
 			{% endif %}
 		</div>
 		<div class="div" id="marge"></div>
 
-		<!-- L'impact du HBa1c -->
-		<div class="div" id="bloc3">
-			<br>
-			<h5>L'impact du HBa1c</h5>
-			<br>
-			{% if list_impact %}
-    			{% for visu in list_impact %}
-                    <a class="btn btn-success" href="/../{{visu.id}}/visu/" role="button" style="width:300px;height:60px;text-align: center;">{{visu.visu_title}}</a>
-                    <div class="div" id="bloc3_m"></div>
-    			{% endfor %}
-    			{% else %}
-        			<p>---</p>
-			{% endif %}
-		</div>
-
-
 	</center>
-
-</body>

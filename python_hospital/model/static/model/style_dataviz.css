@@ -1,7 +1,6 @@
 .div {
 display:table-cell;
 width:300px;
-height:500px;
 margin:5;
 text-align: center;
 }
@@ -10,10 +9,26 @@ text-align: center;
 }
 #bloc1 {
 	background: #D2F4C2;
+	height:500px;
+}
+#bloc1_m {
+	background: #D2F4C2;
+	height:10px;
 }
 #bloc2 {
 	background: #C2F4C2;
+	height:500px;
+}
+#bloc2_m {
+	background: #C2F4C2;
+	height:10px;
 }
 #bloc3 {
 	background: #C2F4DB;
+	height:500px;
 }
+#bloc3_m {
+	background: #C2F4DB;
+	height:10px;
+}
+
