@@ -1,0 +1,28 @@
+
+div#gauche {
+  float: left;
+  background: #789;
+  width: 500px;
+  text-align: center;
+  vertical-align: middle;
+}
+div#droite1 {
+  background: #abc;
+  text-align: center;
+  vertical-align: middle;
+  height: 500px;
+}
+
+div#droite2 {
+  background: #abc;
+  text-align: center;
+  vertical-align: middle;
+  height: 314px;
+}
+
+div#droite3 {
+  background: #abc;
+  text-align: center;
+  vertical-align: middle;
+  height: 250px;
+}

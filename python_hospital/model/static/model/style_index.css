@@ -1,0 +1,12 @@
+div#chart{
+	float: left;
+	width: 500px;
+	height: 500px;
+  	text-align: center;
+}
+
+div#desc{
+	width: 500px;
+	height: 500px;
+  	text-align: center;
+}
