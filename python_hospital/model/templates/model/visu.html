@@ -1,0 +1,228 @@
+<!Doctype HTML>  
+<html>  
+
+<head>  
+    <title>{{visu.visu_title}}</title>  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {% load static %}
+   <link rel="stylesheet" type="text/css" href="{% static 'model/style_visu.css' %}"> 
+</head>  
+
+<body>
+
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Python Project</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/../who">Who are we</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/../context">What we do</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/../../dataviz">Dataviz</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/../models">Models</a>
+              </li>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <a class="btn btn-secondary" href="/../admin" role="button">Login</a>
+          </ul>
+
+        </div>
+      </div>
+  </nav>
+  <br>
+  <br>
+
+
+
+  {%if choice%}
+  
+    
+    <div class="Global" id="visu">
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+      var val = [{% for value in values %}'{{value|safe}}',{% endfor %}]
+
+      const backColor = ['rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)']
+      const borderColor = ['rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+      ]
+
+      
+      
+      
+      if ({{data}}.length == 1)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        }]
+      }
+      if ({{data}}.length == 2)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        },
+        {
+          label: val[1],
+          data: {{data}}[1],
+          borderColor: borderColor[1],
+          backgroundColor: backColor[1],
+        }]
+      }
+      if ({{data}}.length == 3)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        },
+        {
+          label: val[1],
+          data: {{data}}[1],
+          borderColor: borderColor[1],
+          backgroundColor: backColor[1],
+        },
+        {
+          label:val[2],
+          data: {{data}}[2],
+          borderColor: borderColor[2],
+          backgroundColor: backColor[2],
+        }]
+      }
+      if ({{data}}.length == 4)
+      {
+        var dataset = [
+        {
+          label: val[0],
+          data: {{data}}[0],
+          borderColor: borderColor[0],
+          backgroundColor: backColor[0],
+        },
+        {
+          label: val[1],
+          data: {{data}}[1],
+          borderColor: borderColor[1],
+          backgroundColor: backColor[1],
+        },
+        {
+          label: val[2],
+          data: {{data}}[2],
+          borderColor: borderColor[2],
+          backgroundColor: backColor[2],
+        },
+        {
+          label: val[3],
+          data: {{data}}[3],
+          borderColor: borderColor[3],
+          backgroundColor: backColor[3],
+        }
+        ]
+
+      }
+      
+      
+        
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+            type: '{{visu.visu_type}}',
+              data: {
+                labels: [{% for label in labels %}'{{label|safe}}',{% endfor %}],
+                datasets: dataset
+              },
+              options: {
+              scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }}
+              });
+    </script>
+  </div>
+
+
+  {%else%}
+	<div class="Global" id="visu">
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+      const backColor = ['rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)']
+      const borderColor = ['rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+      ]
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      const myChart = new Chart(ctx, {
+            type: '{{visu.visu_type}}',
+              data: {
+                labels: [{% for label in labels %}'{{label|safe}}',{% endfor %}],
+                datasets: [{
+                  label: 'titre label',
+                  data: {{data}},
+                  backgroundColor: backColor,
+                 borderColor: borderColor,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+              scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }}
+              });
+    </script>
+  </div>
+  {%endif%}
+
+  
+
+
+  <div class="Global" id="marge"></div>
+  <div class="Global" id="desc">
+    <br>
+    <center><h1>{{visu.visu_title}}</h1></center>
+    <br>
+    <p>
+      {{visu.visu_description}}
+    </p>
+  </div>
+</body>

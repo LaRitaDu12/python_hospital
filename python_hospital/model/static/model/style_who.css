@@ -1,0 +1,15 @@
+.div {
+display:inline-block;
+width:300px;
+height:400px;
+margin:5;
+}
+#one {
+background:#A2D8D0;
+}
+#two {
+background:#A2D8C0;
+}
+#three {
+background:#A2CED8;
+}
