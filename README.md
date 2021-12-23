@@ -1,4 +1,16 @@
+
 # python_hospital
+
+## Notebooks
+
+### "Preprocessing.ipynb"
+Contains every step for data preprocessing
+
+### "Model_Testing.ipynb"
+Contains written code for model testing and comparison 
+
+### "Some_dataviz.ipynb"
+Contains some plots to explain certain features of the dataset
 
 ## Django
 
@@ -61,4 +73,5 @@ On peut y trouver l'historique des prédictions effectuées. Pour des soucis de 
 L'utilisateur peut accéder à la page admin par le bouton `Login` en haut à droite.
 Pour des soucis de sécurité, nous ne donnerons pas accès à cette page. Sachez que c'est à travers cette page que l'on a pu créer
 des visualisations et des prédictions.
+
 
