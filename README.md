@@ -1,16 +1,21 @@
 
 # python_hospital
 
+## Visu
+
+Contains all the plots presented during the class.
+
 ## Notebooks
 
-### "Preprocessing.ipynb"
+### Preprocessing.ipynb
 Contains every step for data preprocessing
 
-### "Model_Testing.ipynb"
+### Model_Testing.ipynb
 Contains written code for model testing and comparison 
 
-### "Some_dataviz.ipynb"
+### Some_dataviz.ipynb
 Contains some plots to explain certain features of the dataset
+
 
 ## Django
 
